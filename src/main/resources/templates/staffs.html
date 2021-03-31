@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/fragment :: head">
+
+</head>
+<body>
+<header th:replace="fragments/fragment :: navigation">
+
+</header>
+<main class="p-5 align-content-center bg-blur my-main" style=" background-image: url('/images/background.jpg'); ">
+
+    <div class="d-flex justify-content-center" style=" background-color: rgba(0, 0, 0, 0.6);">
+        <a type="button" th:href="@{/home}"  class="btn btn-sm btn-outline-secondary my-close">Close</a>
+
+        <div class="col  card-my">
+            <div th:each="a : ${staffs}" th:object="${a}" class="card mb-4 box-shadow">
+                <img th:src="*{picUrl}" class="card-img-top" alt="Thumbnail [100x225]"
+                     data-holder-rendered="true"
+                     style="height: 225px; width: 350px; display: block;">
+                <div class="card-body">
+                    <div class="text-center">
+                        <p th:text="|Name: *{inicial}|" class="card-text border-bottom "></p>
+                        <p th:text="|Type: *{description}|" class="card-text border-bottom "></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+<footer th:replace="fragments/fragment :: footer">
+</footer>
+</body>
+</html>

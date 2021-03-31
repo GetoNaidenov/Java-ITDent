@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+                xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<head th:fragment="head">
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>ITDent</title>
+    <link rel="stylesheet" href="/css/reset-css.css"/>
+    <link rel="stylesheet" href="/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="/css/style.css"/>
+</head>
+<body>
+<header th:fragment="navigation">
+    <nav class="navbar navbar-expand-lg bg-dark rounded">
+        <a class="nav-link" href="/home">
+            <img src="/images/dent.jpg" width="40px" alt="dental">
+            ITDent
+        </a>
+
+
+
+        <div class="collapse navbar-collapse d-flex justify-content-end" id="navbarNav">
+            <ul class="navbar-nav row">
+
+
+                    <li class="nav-item col-md-4">
+                        <a class="nav-link text-white active h5"
+                           sec:authorize="!isAuthenticated()"
+                           th:href="@{/users/login}">Login</a>
+                    </li>
+                    <li class="nav-item col-md-4">
+                        <a class="nav-link text-white active h5"
+                           sec:authorize="!isAuthenticated()"
+                           th:href="@{/users/register}">Register</a>
+                    </li>
+
+                    <li class="nav-item col-md-4"  sec:authorize="isAuthenticated()">
+                        <a class="nav-link text-white active h5" th:href="@{/clinics/create}">Create Clinic</a>
+                    </li>
+
+                    <li class="nav-item col-md-4"  sec:authorize="hasRole('ROLE_ADMIN')">
+                    <a class="nav-link text-white active h5" th:href="@{/clinics/my}">My Clinics</a>
+                   </li>
+
+
+
+
+
+                    <li class="nav-item col-md-4" sec:authorize="isAuthenticated()">
+                        <form th:action="@{/logout}" method="POST">
+                            <button type="submit" class="btn btn-primary btn-block w-100">
+                                Logout
+                            </button>
+                        </form>
+                    </li>
+
+
+            </ul>
+        </div>
+    </nav>
+</header>
+<footer class="footer bg-blur" th:fragment="footer">
+    <div class="container-fluid text-center">
+        <div class="h5 text-white">
+            @ITDent 2021. All rights reserved.
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>

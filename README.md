@@ -1,1 +1,2 @@
-# Java-ITDent
+# ITDent
+ Student project

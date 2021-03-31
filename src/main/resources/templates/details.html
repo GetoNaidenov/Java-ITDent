@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head th:replace="fragments/fragment :: head">
+
+</head>
+<body>
+<header th:replace="fragments/fragment :: navigation">
+
+</header>
+<main class="p-5 align-content-center bg-blur my-main" style=" background-image: url('/images/background.jpg'); ">
+
+    <h1 class=" align-items-center">Details</h1>
+
+    <div class="d-flex justify-content-center" style=" background-color: rgba(0, 0, 0, 0.6);">
+        <a type="button" th:href="@{/home}"  class="btn btn-sm btn-outline-secondary my-close">Close</a>
+    <div class="row  card-my">
+        <div  th:object="${clinic}" class="card mb-4 box-shadow">
+            <img th:src="*{imageUrl}" class="card-img-top" alt="Thumbnail [100%x225]"
+                 data-holder-rendered="true"
+                 style="height: 300px; width: 500px; display: block;">
+            <div class="card-body">
+                <div class="text-center">
+                    <p th:text="|Name: *{name}|" class="card-text border-bottom "></p>
+                    <p th:text="|City: *{city}|" class="card-text border-bottom "></p>
+                    <p th:text="|Address: *{address}|" class="card-text border-bottom "></p>
+                    <p th:text="|Phone: *{phone}|" class="card-text border-bottom "></p>
+                    <p th:text="|Type: *{type}|" class="card-text border-bottom "></p>
+                    <p th:text="|WorksDay: *{workDays}|" class="card-text border-bottom "></p>
+                    <p th:text="|Open Time: *{openTime} h.|" class="card-text border-bottom "></p>
+                    <p th:text="|Close Time: *{closeTime} h.|" class="card-text border-bottom "></p>
+                </div>
+                <div class="btn-group" >
+                    <a type="button" th:href="@{/staffs/{id}(id = *{id})}"  class="btn btn-sm btn-outline-secondary">See Staffs</a>
+                    <a type="button" th:href="@{/comments/{id}(id = *{id})}"  class="btn btn-sm btn-outline-secondary">See comments</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+</main>
+<footer th:replace="fragments/fragment :: footer">
+</footer>
+</body>
+</html>

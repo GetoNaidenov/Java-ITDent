@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/fragment :: head">
+
+</head>
+<body>
+<header th:replace="fragments/fragment :: navigation">
+
+</header>
+<main class="p-5 align-content-center bg-blur   my-register-div my-main"
+      style=" background-image: url('/images/background.jpg'); ">
+
+
+    <h1 class=" align-items-center">Comments</h1>
+
+
+    <div class="d-flex justify-content-center" style=" background-color: rgba(0, 0, 0, 0.6);">
+        <a type="button" th:href="@{/home}" class="btn btn-sm btn-outline-secondary my-close">Close</a>
+
+
+        <div class="col-auto  card-my">
+            <div th:object="${clinic}" class="card mb-4 box-shadow">
+                <img th:src="*{imageUrl}" class="card-img-top" alt="Thumbnail [100%x225]"
+                     data-holder-rendered="true"
+                     style="height: 300px; width: 500px; display: block;">
+                <div class="text-center">
+                    <p th:text="*{name}" class="card-text border-bottom "></p>
+                </div>
+            </div>
+
+            <div class="col  card-my">
+                <div th:each="a : ${comments}" th:object="${a}" >
+                    <div class="alert alert-secondary" role="alert" th:text="|*{user.username}: *{comment}|">
+                        This is a secondary alert—check it out!
+                    </div>
+
+                    </div>
+                </div>
+
+                <form th:action="@{/comments/add/{id}(id = ${id})}" method="POST"
+                      th:object="${createCommentBindingModel}">
+
+                    <div>
+                        <div class="row-auto">
+                            <label for="inputComment" class="col-form-label text-light">Comment</label>
+                        </div>
+                        <div class="row-auto">
+                            <input type="text" name="comment"
+                                   th:value="*{comment}"
+                                   th:errorclass="is-invalid"
+                                   placeholder="Your comment"
+                                   id="inputComment" class="form-control"
+                                   aria-describedby="commentHelpInline">
+                            <small id="commentError"
+                                   class="invalid-feedback text-light form-text bg-danger rounded">Comment length must
+                                be
+                                more than 1 character</small>
+                        </div>
+                    </div>
+
+
+                    <div class="d-flex justify-content-center mt-2">
+                        <button class="btn btn-primary btn-block w-50" type="submit">Add</button>
+                    </div>
+
+                </form>
+
+            </div>
+
+
+        </div>
+</main>
+<footer th:replace="fragments/fragment :: footer">
+
+</footer>
+</body>
+</html>

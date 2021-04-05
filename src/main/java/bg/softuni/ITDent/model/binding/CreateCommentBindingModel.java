@@ -2,12 +2,12 @@ package bg.softuni.ITDent.model.binding;
 
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
-
 public class CreateCommentBindingModel {
 
     @NotEmpty
-    @Size(min = 3)
+    @Size(min = 1)
     private String comment;
+
 
     public CreateCommentBindingModel() {
     }

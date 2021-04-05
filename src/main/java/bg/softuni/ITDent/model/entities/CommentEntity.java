@@ -1,9 +1,9 @@
 package bg.softuni.ITDent.model.entities;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "coments")
@@ -11,6 +11,8 @@ public class CommentEntity extends BaseEntity {
 
       @Column(name = "comments",nullable = false)
       private String comment;
+      @Column(name = "release_date",nullable = false)
+      private LocalDateTime releaseData;
       @ManyToOne
       private UserEntity user;
       @ManyToOne
@@ -43,6 +45,15 @@ public class CommentEntity extends BaseEntity {
 
     public CommentEntity setClinic(ClinicEntity clinic) {
         this.clinic = clinic;
+        return this;
+    }
+
+    public LocalDateTime getReleaseData() {
+        return releaseData;
+    }
+
+    public CommentEntity setReleaseData(LocalDateTime releaseData) {
+        this.releaseData = releaseData;
         return this;
     }
 }

@@ -26,9 +26,10 @@ public class ClinicCreateBindingModel {
     @NotNull
     private String type;
     private String imageUrl;
-
+    @NotNull
     @DateTimeFormat(pattern = "HH:mm")
     private LocalTime openTime;
+    @NotNull
     @DateTimeFormat(pattern = "HH:mm")
     private LocalTime closeTime;
     @NotNull

@@ -52,4 +52,9 @@ public class StaffServiceImpl implements StaffService {
 
         return staffRepository.findAllByClinicEntity(clinicEntity);
     }
+
+    @Override
+    public Long staffCount() {
+        return staffRepository.count();
+    }
 }

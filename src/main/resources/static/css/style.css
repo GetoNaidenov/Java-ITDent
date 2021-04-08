@@ -45,3 +45,13 @@ body {
 .col{
     flex-grow: 0;
 }
+
+
+.form-visit {
+    width: 80%;
+    margin: 25px 20px;
+}
+
+.my-card{
+    margin-bottom: 25px;
+}

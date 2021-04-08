@@ -143,7 +143,7 @@ background-image: url('/images/background.jpg');" >
                                 th:text="MULTISPECIALTY"></option>
 
                     </select>
-                    <small id="typeError" class="form-text bg-danger rounded">You must select type</small>
+                    <small id="typeError" class="invalid-feedback text-light form-text bg-danger rounded">You must select type</small>
                 </div>
             </div>
 
@@ -161,7 +161,7 @@ background-image: url('/images/background.jpg');" >
 
 
                     </select>
-                    <small id="workDaysError" class="form-text bg-danger rounded">You must select work days</small>
+                    <small id="workDaysError" class="invalid-feedback text-light form-text bg-danger rounded">You must select work days</small>
                 </div>
             </div>
 
@@ -174,13 +174,17 @@ background-image: url('/images/background.jpg');" >
                 <label for="openTime" class="col-form-label text-light">Opentime</label>
                 <div class="col-auto">
                     <input th:value="*{openTime}" name="openTime" class="form-control" type="time"  id="openTime">
+
                 </div>
               </div>
+                <small id="openTimeError" class="invalid-feedback text-light form-text bg-danger rounded">You must select open time</small>
             <div class="col">
                 <label for="closeTime" class="col-form-label text-light" >Closetime</label>
                 <div class="col-auto">
-                    <input th:value="*{closeTime}" name="closeTime" class="form-control " type="time" id="closeTime">
+                    <input th:value="*{closeTime}" name="closeTime" class="form-control" type="time" id="closeTime">
+
                 </div>
+                <small id="closeTimeError" class="invalid-feedback text-light form-text bg-danger rounded">You must select close time</small>
             </div>
 
             </div>

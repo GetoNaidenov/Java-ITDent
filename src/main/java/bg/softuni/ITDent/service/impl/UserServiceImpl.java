@@ -59,6 +59,11 @@ public class UserServiceImpl implements UserService {
         userRepository.save(userEntity);
     }
 
+    @Override
+    public Long userCount() {
+        return userRepository.count();
+    }
+
 
     @Override
     public void registerAndLoginUser(UserRegistrationServiceModel serviceModel){

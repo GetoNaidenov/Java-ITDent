@@ -14,4 +14,7 @@ public interface StaffService {
     void addStaff(StaffServiceModel staffServiceModel);
 
     List<StaffEntity> findAllById(Long id);
+
+    Long staffCount();
+
 }

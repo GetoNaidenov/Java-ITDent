@@ -148,4 +148,9 @@ public class ClinicServiceImpl implements ClinicService {
 
         return result;
     }
+
+    @Override
+    public Long clinicCount() {
+        return clinicRepository.count();
+    }
 }

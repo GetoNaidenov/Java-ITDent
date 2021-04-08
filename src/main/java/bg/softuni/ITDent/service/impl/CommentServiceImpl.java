@@ -7,6 +7,7 @@ import bg.softuni.ITDent.model.service.CommentServiceModel;
 import bg.softuni.ITDent.repository.CommentRepository;
 import bg.softuni.ITDent.service.ClinicService;
 import bg.softuni.ITDent.service.CommentService;
+import bg.softuni.ITDent.service.ForumCommentsService;
 import bg.softuni.ITDent.service.UserService;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
@@ -21,13 +22,15 @@ public class CommentServiceImpl implements CommentService {
     private final CommentRepository commentRepository;
     private final UserService userService;
     private final ClinicService clinicService;
+    private final ForumCommentsService forumCommentsService;
 
 
-    public CommentServiceImpl(ModelMapper modelMapper, CommentRepository commentRepository, UserService userService, ClinicService clinicService) {
+    public CommentServiceImpl(ModelMapper modelMapper, CommentRepository commentRepository, UserService userService, ClinicService clinicService, ForumCommentsService forumCommentsService) {
         this.modelMapper = modelMapper;
         this.commentRepository = commentRepository;
         this.userService = userService;
         this.clinicService = clinicService;
+        this.forumCommentsService = forumCommentsService;
     }
 
 
@@ -54,5 +57,13 @@ public class CommentServiceImpl implements CommentService {
         ClinicEntity clinic = modelMapper.map(clinicService.findById(id),ClinicEntity.class);
 
         return commentRepository.findAllByClinic(clinic);
+    }
+
+    @Override
+    public Long commentCount() {
+        Long commentCount = commentRepository.count();
+        Long forumComment = forumCommentsService.forumCommentCount();
+
+        return commentCount + forumComment;
     }
 }

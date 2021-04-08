@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.validation.Valid;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Controller
@@ -64,10 +65,10 @@ public class CommentController {
         }
 
         CommentServiceModel commentModel = modelMapper.map(createCommentBindingModel, CommentServiceModel.class);
-        commentModel.setUser(principal.getUsername());
         ClinicViewModel clinicViewModel =clinicService.findById(id);
+        commentModel.setUser(principal.getUsername());
         commentModel.setClinic(clinicViewModel.getName());
-
+        commentModel.setReleaseData(LocalDateTime.now());
         commentService.addComment(commentModel);
 
 

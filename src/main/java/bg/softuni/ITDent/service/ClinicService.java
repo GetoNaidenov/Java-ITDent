@@ -26,4 +26,6 @@ public interface ClinicService {
    Optional<ClinicEntity> findByName(String name);
 
     List<ClinicEntity> findAllMyClinics(String name);
+
+    Long clinicCount();
 }

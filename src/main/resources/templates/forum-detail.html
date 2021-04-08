@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head th:replace="fragments/fragment :: head">
 
 </head>
@@ -7,38 +8,25 @@
 <header th:replace="fragments/fragment :: navigation">
 
 </header>
-<main class="p-5 align-content-center bg-blur   my-register-div my-main"
-      style=" background-image: url('/images/background.jpg'); ">
+<main class="p-5 align-content-center bg-blur my-main" style=" background-image: url('/images/background.jpg'); ">
 
-
-    <h1 class=" align-items-center">Comments</h1>
-
+    <h1 class=" align-items-center">Forum</h1>
 
     <div class="d-flex justify-content-center" style=" background-color: rgba(0, 0, 0, 0.6);">
-        <a type="button" th:href="@{/home}" class="btn btn-sm btn-outline-secondary my-close">Close</a>
 
 
-        <div class="col-auto  card-my">
-            <div th:object="${clinic}" class="card mb-4 box-shadow">
-                <img th:src="*{imageUrl}" class="card-img-top" alt="Thumbnail [100%x225]"
-                     data-holder-rendered="true"
-                     style="height: 300px; width: 500px; display: block;">
-                <div class="text-center">
-                    <p th:text="*{name}" class="card-text border-bottom "></p>
-                </div>
-            </div>
+        <div class="form-visit">
 
-            <div class="col  card-my">
-                <div th:each="a : ${comments}" th:object="${a}" >
-                    <div class="alert alert-secondary" role="alert" th:text="|*{user.username}: *{comment}|">
-                        This is a secondary alert—check it out!
-                    </div>
-
-                    </div>
+            <div class="card  my-card" th:object="${forum}">
+                <h2 class="card-header border-bottom" th:text="*{name}"></h2>
+                <img src="/images/user.jpg" width="40px" alt="dental">
+                <p th:text="|*{creator}:  *{releaseDate}|" class="card-text"></p>
+                <div class="card-body">
+                 <p th:text="*{description}" class="border-bottom"></p>
                 </div>
 
-                <form th:action="@{/comments/add/{id}(id = ${id})}" method="POST"
-                      th:object="${createCommentBindingModel}">
+                <form th:action="@{/forums/comment/{id}(id = ${id})}" method="POST"
+                      th:object="${createForumCommentBindingModel}">
 
                     <div>
                         <div class="row-auto">
@@ -53,11 +41,9 @@
                                    aria-describedby="commentHelpInline">
                             <small id="commentError"
                                    class="invalid-feedback text-light form-text bg-danger rounded">Comment length must
-                                be
-                                more than 5 character</small>
+                                be more than 5 character</small>
                         </div>
                     </div>
-
 
                     <div class="d-flex justify-content-center mt-2">
                         <button class="btn btn-primary btn-block w-50" type="submit">Add</button>
@@ -65,13 +51,20 @@
 
                 </form>
 
+                <div class="form-visit">
+                    <div class="card  my-card" th:each="a : ${comments}" th:object="${a}">
+                        <img src="/images/user.jpg" width="40px" alt="dental">
+                        <p th:text="|*{creator}:   *{releaseDate}|" class="card-text"></p>
+                        <div class="card-body">
+                            <h5 class="card-header" th:text="*{comment}"></h5>
+                        </div>
+                </div>
             </div>
-
-
         </div>
+        </div>
+    </div>
 </main>
 <footer th:replace="fragments/fragment :: footer">
-
 </footer>
 </body>
 </html>

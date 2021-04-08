@@ -9,4 +9,6 @@ public interface CommentService {
     void addComment(CommentServiceModel commentModel);
 
     List<CommentEntity> findAllByClinic(Long id);
+
+    Long commentCount();
 }

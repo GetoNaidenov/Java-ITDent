@@ -17,4 +17,5 @@ public interface UserService {
 
     void saveUser(UserEntity userEntity);
 
+    Long userCount();
 }

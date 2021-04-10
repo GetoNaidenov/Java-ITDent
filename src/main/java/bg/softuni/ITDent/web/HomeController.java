@@ -14,12 +14,14 @@ public class HomeController {
     private final CommentService commentService;
     private final StaffService staffService;
 
+
     public HomeController(ClinicService clinicService, ForumService forumService, UserService userService, CommentService commentService, StaffService staffService) {
         this.clinicService = clinicService;
         this.forumService = forumService;
         this.userService = userService;
         this.commentService = commentService;
         this.staffService = staffService;
+
     }
 
     @GetMapping("/")
@@ -29,6 +31,7 @@ public class HomeController {
         model.addAttribute("userCount",userService.userCount());
         model.addAttribute("commentCount",commentService.commentCount());
         model.addAttribute("staffCount",staffService.staffCount());
+
         return "index";
     }
 

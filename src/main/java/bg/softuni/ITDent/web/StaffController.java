@@ -3,6 +3,7 @@ package bg.softuni.ITDent.web;
 import bg.softuni.ITDent.model.binding.StaffAddBindingModel;
 import bg.softuni.ITDent.model.entities.ClinicEntity;
 import bg.softuni.ITDent.model.service.StaffServiceModel;
+import bg.softuni.ITDent.model.view.ClinicViewModel;
 import bg.softuni.ITDent.service.ClinicService;
 import bg.softuni.ITDent.service.StaffService;
 import org.modelmapper.ModelMapper;
@@ -38,6 +39,8 @@ public class StaffController {
     @GetMapping("/add")
     public String add(@AuthenticationPrincipal UserDetails principal, Model model){
         model.addAttribute("clinic",clinicService.findAllMyClinics(principal.getUsername()));
+
+        model.addAttribute("admin", true);
         return "add-staff";
     }
 
@@ -77,8 +80,9 @@ public class StaffController {
         return "staffs";
     }
 
-
-
-
-
+    @GetMapping("/delete/{id}")
+    public String deleteStaff(@PathVariable Long id){
+        staffService.deleteById(id);
+        return "home";
+    }
 }

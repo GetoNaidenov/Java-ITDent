@@ -57,4 +57,9 @@ public class StaffServiceImpl implements StaffService {
     public Long staffCount() {
         return staffRepository.count();
     }
+
+    @Override
+    public void deleteById(Long id) {
+        staffRepository.deleteById(id);
+    }
 }

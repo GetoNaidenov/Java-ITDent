@@ -33,7 +33,7 @@
                                aria-describedby="inicialHelpInline">
                         <small id="inicialError"
                                class="invalid-feedback text-light form-text bg-danger rounded">Inicials length must be
-                            more than 10 characters</small>
+                            between  7  and 20 characters</small>
 
                         <small th:if="${nameExist}" id="inicialDublicateError"
                                class="invalid-feedback text-light form-text bg-danger rounded">Inicial is already.</small>
@@ -54,7 +54,7 @@
                                aria-describedby="imageUrlHelpInline">
                         <small id="picUrlError"
                                class="invalid-feedback text-light form-text bg-danger rounded">Pic Url length must be
-                            more than 10 characters</small>
+                            between 10 and 100 characters</small>
                     </div>
                 </div>
 
@@ -73,7 +73,7 @@
                         <small id="descriptionError"
                                class="invalid-feedback text-light form-text bg-danger rounded">Description length must
                             be
-                            more than 10 characters</small>
+                            between 10 and 200 characters</small>
                     </div>
                 </div>
 
@@ -87,7 +87,7 @@
                                      th:object="${c}"
                                     th:value="${c.name}" th:text="${c.name}"></option>
                         </select>
-                        <small id="clinicNameError" class="form-text bg-danger rounded">You must select Clinic!</small>
+                        <small id="clinicNameError" class="invalid-feedback form-text bg-danger rounded">You must select Clinic!</small>
                     </div>
                 </div>
 

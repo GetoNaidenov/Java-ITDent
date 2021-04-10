@@ -85,13 +85,7 @@ private final ModelMapper modelMapper;
         return "details";
     }
 
-    @GetMapping("/delete/{id}")
-        public String deleteClinic(@PathVariable Long id){
 
-        clinicService.deleteById(id);
-
-        return "home";
-    }
 
     @GetMapping("/my")
     public String my(@AuthenticationPrincipal UserDetails principal,Model model){

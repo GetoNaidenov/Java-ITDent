@@ -8,25 +8,61 @@
 </header>
 
 <main class="p-5 align-content-center my-main bg-image card shadow-1-strong"
-style="
-background-image: url('/images/background.jpg');
-    ">
+      style="
+background-image: url('/images/background.jpg');">
+
     <h1 class="text-dark  pl-2">Welcome to</h1>
     <h1 class="text-dark  pl-2">ITDent!</h1>
-    <div class="d-flex justify-content-center">
+
+    <div class="d-flex justify-content-center" style=" background-color: rgba(0, 0, 0, 0.6);">
+        <div class="d-flex justify-content-center ">
+
+            <div class="row">
+
+            <div class="card home" style="width: 18rem;">
+                <img class="card-img-top" src="images/clinic-carusel.jpg" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title" th:text="|${clinicCount} registred clinics.|"></h5>
+                </div>
+            </div>
+
+            <div class="card home" style="width: 18rem;">
+                <img class="card-img-top" src="images/doctors-carusel.jpg" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title" th:text="|${staffCount} registred Doctors.|"></h5>
+                </div>
+            </div>
+
+            <div class="card home" style="width: 18rem;">
+                <img class="card-img-top" src="images/forum-carusel.jpg" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title" th:text="|${forumCount} registred forums.|"></h5>
+                </div>
+            </div>
+
+            <div class="card home" style="width: 18rem;">
+                <img class="card-img-top" src="images/comment-carusel.png" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title" th:text="|${commentCount} creaded comments.|"></h5>
+                </div>
+            </div>
+
+            <div class="card home" style="width: 18rem;">
+                <img class="card-img-top" src="images/users-carusel.jpg" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title" th:text="|${userCount} registred users|"></h5>
+                </div>
+            </div>
+        </div>
+        </div>
     </div>
 
-
-
-
-
-
-
-
-
-
-
-
+    <h3>
+        <a class="text-primay" href="/users/login">Login</a>
+        if you have an account or
+        <a class="text-primay" href="/users/register">Register</a>
+        now and check our deals.
+    </h3>
 </main>
 
 

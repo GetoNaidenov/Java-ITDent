@@ -12,24 +12,23 @@ import java.time.LocalTime;
 
 public class ClinicCreateBindingModel {
     @NotEmpty
-    @Size(min = 3)
+    @Size(min = 3,max = 20)
     private String name;
     @NotEmpty
-    @Size(min = 3)
+    @Size(min = 3,max = 20)
     private String city;
     @NotEmpty
-    @Size(min = 5)
+    @Size(min = 5,max = 20)
     private String address;
     @NotEmpty
-    @Size(min = 10)
+    @Size(min = 10,max = 15)
     private String phone;
     @NotNull
+    @NotEmpty
     private String type;
     private String imageUrl;
-    @NotNull
     @DateTimeFormat(pattern = "HH:mm")
     private LocalTime openTime;
-    @NotNull
     @DateTimeFormat(pattern = "HH:mm")
     private LocalTime closeTime;
     @NotNull

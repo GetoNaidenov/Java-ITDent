@@ -6,13 +6,13 @@ import javax.validation.constraints.Size;
 
 public class StaffAddBindingModel {
     @NotEmpty
-    @Size(min = 7)
+    @Size(min = 7,max = 20)
     private String inicial;
     @NotEmpty
-    @Size(min = 10)
+    @Size(min = 10,max = 100)
     private String picUrl;
     @NotEmpty
-    @Size(min = 10)
+    @Size(min = 10,max = 200)
     private String description;
     @NotEmpty
     private String clinicName;

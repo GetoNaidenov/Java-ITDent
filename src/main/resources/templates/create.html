@@ -26,7 +26,7 @@ background-image: url('/images/background.jpg');" >
                            aria-describedby="nameHelpInline">
                     <small id="nameError"
                            class="invalid-feedback text-light form-text bg-danger rounded">Name length must be
-                        more than 3 characters</small>
+                        between 3 and 20 characters</small>
 
                     <small th:if="${nameExist}"
                            class="invalid-feedback text-light form-text bg-danger rounded">User is already.</small>
@@ -47,7 +47,7 @@ background-image: url('/images/background.jpg');" >
                            aria-describedby="cityHelpInline">
                     <small id="cityError"
                            class="invalid-feedback text-light form-text bg-danger rounded">City length must be
-                        more than 3 characters</small>
+                        between 3 and 20 characters</small>
                 </div>
             </div>
 
@@ -81,7 +81,7 @@ background-image: url('/images/background.jpg');" >
 
                     <small id="addressError"
                            class="invalid-feedback text-light form-text bg-danger rounded">Address length must be
-                        more than 5 characters</small>
+                        between 10 and 20 characters</small>
                 </div>
             </div>
 
@@ -98,8 +98,8 @@ background-image: url('/images/background.jpg');" >
                            aria-describedby="phoneHelpInline">
 
                     <small id="phoneError"
-                           class="invalid-feedback text-light form-text bg-danger rounded">Full name length must be
-                        more than 10 numbers</small>
+                           class="invalid-feedback text-light form-text bg-danger rounded">Number length must be
+                        between 10 and 15 numbers</small>
                 </div>
             </div>
 
